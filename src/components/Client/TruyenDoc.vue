@@ -37,14 +37,12 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-2">
-                        <img style="width: 200px;height: 300px;"
-                            src="https://static.cdnno.com/poster/noi-xong-cong-luoc-the-gioi-cap-thap-nguoi-nhanh-thong-dragon-ball/300.jpg?1722832652"
-                            alt="">
+                        <img style="width: 220px;height: 300px;"
+                            v-bind:src="'https://otruyenapi.com/uploads/comics/'+thong_tin_truyen.thumb_url" alt="">
                     </div>
                     <div class="col-lg-9">
-                        <h4 class="card-title ms-4 mt-1">Nói Xong Công Lược Thế Giới Cấp Thấp, Ngươi Nhanh Thông Dragon
-                            Ball?</h4>
-                        <span class="ms-4 mt-4">Bằng Đằng Cửu Vạn Lý</span>
+                        <h4 class="card-title ms-4 mt-1">{{ thong_tin_truyen.name }}</h4>
+                        <span class="ms-4 mt-4">{{ thong_tin_truyen.author[0]}}</span>
                         <div class="ms-4 mt-3">
                             <button class="btn btn-primary">
                                 <i class="fa-solid fa-hotel"></i>
@@ -68,19 +66,13 @@
                             </button>
                         </div>
                         <div class="ms-4 mt-3 text-wrap">
-                            Người qua đường Giáp: “Mau mau, giúp ta nhìn xem ta trong này nhẫn khảo thí thứ 108 đầu công
-                            lược có vấn đề hay không, mẹ nó Orochimaru quá kinh khủng, đây chính là lịch đại mạnh nhất
-                            Hokage, hắn vậy mà đều g·iết đi.”
-                            Người qua đường bính: “Đúng đúng, còn có ta cái này, vòng như thế nào cấp tốc thay thế tóc
-                            đỏ, trở thành trên biển Tứ Hoàng một trong.”
-                            Người qua đường ức: “Hắc hắc, vận khí ta liền tốt, ta đã nghĩ đến biện pháp, ta chỉ cần đi
-                            khiêu chiến năm phiên đội đối chiến Aizen Sousuke, đánh thắng hắn ta chính là năm phiên đội
-                            đội trưởng, thái kê này bắt đầu liền c·hết, ta khẳng định có thể làm được?”
+                            {{ thong_tin_truyen.content }}
                         </div>
                         <div class="ms-4 mt-3">
                             <button type="button" class="btn btn-outline-danger" disabled>Chuyển sinh</button>
                             <button type="button" class="btn btn-outline-success ms-4" disabled>Ngôn tình</button>
-                            <button type="button" class="btn btn-outline-secondary ms-4" disabled>Trinh thám</button>
+                            <button type="button" class="btn btn-outline-secondary ms-4" disabled>Trinh
+                                thám</button>
                             <button type="button" class="btn btn-outline-info ms-4" disabled>Xuyên không</button>
                         </div>
                     </div>
@@ -322,50 +314,50 @@
                             <div class="card-body">
                                 <div class="comment">
                                     <div class="d-flex">
-                                    <img class="m-2"
-                                        src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
-                                        style="border-radius: 100%;width: 40px;height: 40px;" alt="">
-                                    <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
-                                </div>
-                                <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
-                                <br>
-                                </div>
-                                <div class="comment">
-                                    <div class="d-flex">
-                                    <img class="m-2"
-                                        src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
-                                        style="border-radius: 100%;width: 40px;height: 40px;" alt="">
-                                    <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
-                                </div>
-                                <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
-                                <br>
+                                        <img class="m-2"
+                                            src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
+                                            style="border-radius: 100%;width: 40px;height: 40px;" alt="">
+                                        <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
+                                    </div>
+                                    <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
+                                    <br>
                                 </div>
                                 <div class="comment">
                                     <div class="d-flex">
-                                    <img class="m-2"
-                                        src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
-                                        style="border-radius: 100%;width: 40px;height: 40px;" alt="">
-                                    <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
-                                </div>
-                                <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
-                                <br>
+                                        <img class="m-2"
+                                            src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
+                                            style="border-radius: 100%;width: 40px;height: 40px;" alt="">
+                                        <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
+                                    </div>
+                                    <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
+                                    <br>
                                 </div>
                                 <div class="comment">
                                     <div class="d-flex">
-                                    <img class="m-2"
-                                        src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
-                                        style="border-radius: 100%;width: 40px;height: 40px;" alt="">
-                                    <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
+                                        <img class="m-2"
+                                            src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
+                                            style="border-radius: 100%;width: 40px;height: 40px;" alt="">
+                                        <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
+                                    </div>
+                                    <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
+                                    <br>
                                 </div>
-                                <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
-                                <br>
+                                <div class="comment">
+                                    <div class="d-flex">
+                                        <img class="m-2"
+                                            src="https://static.cdnno.com/poster/dong-thoi-xuyen-qua-ta-dua-vao-chinh-ta/300.jpg?1725414393"
+                                            style="border-radius: 100%;width: 40px;height: 40px;" alt="">
+                                        <h6 class="card-title mt-3 ms-3">Lý Dạ Hành</h6>
+                                    </div>
+                                    <label for="" class="form-control">Truyên quá hay luôn ạ!</label>
+                                    <br>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>       
+        </div>
     </div>
     <div class="container">
         <hr>
@@ -379,8 +371,31 @@
     </div>
 </template>
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+    props: ['slug'],
+    data() {
+        return {
+            slug: this.$route.params.slug,
+            thong_tin_truyen: {}
+        };
+    },
+    mounted() {
+        this.layThongTinChiTietTruyen();
+    },
+    methods: {
+        layThongTinChiTietTruyen() {
+            axios
+                .get('https://otruyenapi.com/v1/api/truyen-tranh/' + this.slug)
+                .then((res) => {
+                    this.thong_tin_truyen = res.data.data.item
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    }
 }
 </script>
 <style></style>

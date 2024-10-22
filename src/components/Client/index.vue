@@ -38,124 +38,38 @@
     </div>
     <div class="container mt-2">
         <div class="row ">
-            <div class="col-lg-6 ">
-                <router-link to="/truyen-doc">
-                    <a class="nav-link" href="/truyen-doc">
-                        <div class="card mb-3 ">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <div class="card-header">
-                                        <img src="https://static.cdnno.com/poster/ky-quy-hang-hai-trieu-hoan-thu-tu-thien-tai/300.jpg?1721617967"
-                                            class="img-fluid rounded-start" alt="...">
+            <template v-for="(value,index) in ds_truyen" :key="index">
+                <div class="col-lg-6">
+                    <router-link :to="'/truyen-doc/'+value.slug">
+                        <a class="nav-link" href="/truyen-doc">
+                            <div class="card mb-3 ">
+                                <div class="row g-0">
+                                    <div class="col-md-4 d-flex ">
+                                        <div class="card-header">
+                                            <img style="height: 235px;width: 180px;" v-bind:src="'https://otruyenapi.com/uploads/comics/' + value.thumb_url"
+                                                class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 d-flex ">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                {{ value.name }}</h5>
+                                            <p class="card-text">
+                                                {{ value.slug }}
+                                            </p>
+                                            <p class="card-text">
+                                                <small class="text-body-secondary">
+                                                    {{ value.updatedAt }}
+                                                </small>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            Kỳ Quỷ Hàng Hải: Triệu Hoán Thứ Tư Thiên Tai</h5>
-                                        <p class="card-text">
-                                            Hôm nay, Dương Cẩm Vinh đi ngang qua nữ sinh túc xá dưới lầu, lại bị học tỷ
-                                            báo cáo
-                                            nhìn trộm, còn phách lối quay video viết luận văn nhỏ phát đến Microblogging
-                                            mạng
-                                            bạo!
-                                        </p>
-                                        <p class="card-text">
-                                            <small class="text-body-secondary">
-                                                Last updated 3 mins ago
-                                            </small>
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                    </a>
-                </router-link>
-            </div>
-            <div class="col-lg-6 ">
-                <div class="card mb-3 ">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div class="card-header">
-                                <img src="https://static.cdnno.com/poster/ky-quy-hang-hai-trieu-hoan-thu-tu-thien-tai/300.jpg?1721617967"
-                                    class="img-fluid rounded-start" alt="...">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Kỳ Quỷ Hàng Hải: Triệu Hoán Thứ Tư Thiên Tai</h5>
-                                <p class="card-text">
-                                    Hôm nay, Dương Cẩm Vinh đi ngang qua nữ sinh túc xá dưới lầu, lại bị học tỷ báo cáo
-                                    nhìn trộm, còn phách lối quay video viết luận văn nhỏ phát đến Microblogging mạng
-                                    bạo!
-                                </p>
-                                <p class="card-text">
-                                    <small class="text-body-secondary">
-                                        Last updated 3 mins ago
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
+                    </router-link>
                 </div>
-            </div>
-            <div class="col-lg-6 ">
-                <div class="card mb-3 ">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div class="card-header">
-                                <img src="https://static.cdnno.com/poster/ky-quy-hang-hai-trieu-hoan-thu-tu-thien-tai/300.jpg?1721617967"
-                                    class="img-fluid rounded-start" alt="...">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Kỳ Quỷ Hàng Hải: Triệu Hoán Thứ Tư Thiên Tai</h5>
-                                <p class="card-text">
-                                    Hôm nay, Dương Cẩm Vinh đi ngang qua nữ sinh túc xá dưới lầu, lại bị học tỷ báo cáo
-                                    nhìn trộm, còn phách lối quay video viết luận văn nhỏ phát đến Microblogging mạng
-                                    bạo!
-                                </p>
-                                <p class="card-text">
-                                    <small class="text-body-secondary">
-                                        Last updated 3 mins ago
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 ">
-                <div class="card mb-3 ">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <div class="card-header">
-                                <img src="https://static.cdnno.com/poster/ky-quy-hang-hai-trieu-hoan-thu-tu-thien-tai/300.jpg?1721617967"
-                                    class="img-fluid rounded-start" alt="...">
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Kỳ Quỷ Hàng Hải: Triệu Hoán Thứ Tư Thiên Tai</h5>
-                                <p class="card-text">
-                                    Hôm nay, Dương Cẩm Vinh đi ngang qua nữ sinh túc xá dưới lầu, lại bị học tỷ báo cáo
-                                    nhìn trộm, còn phách lối quay video viết luận văn nhỏ phát đến Microblogging mạng
-                                    bạo!
-                                </p>
-                                <p class="card-text">
-                                    <small class="text-body-secondary">
-                                        Last updated 3 mins ago
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </template>
         </div>
     </div>
     <div class="container">
@@ -183,19 +97,32 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <hr>
-        <h5 class="text-center">
-            <span style="color: chocolate;">
-                Mê Truyện Chữ là nền tảng mở trực tuyến, miễn phí đọc truyện chữ được đóng góp nội dung từ các tác giả
-                viết truyện và các dịch giả convert, dịch truyện, rất nhiều truyện hay và nổi bật được cập nhật nhanh
-                nhất với đủ các thể loại tiên hiệp, kiếm hiệp, huyền ảo ...
-            </span>
-        </h5>
     </div>
 
 </template>
 <script>
+import axios from 'axios';
+
 export default {
+    data() {
+        return {
+            ds_truyen: []
+        }
+    },
+    mounted() {
+        this.layDuLieuTruyen();
+    },
+    methods: {
+        layDuLieuTruyen() {
+            axios
+                .get("https://otruyenapi.com/v1/api/home")
+                .then((res) => {
+                    this.ds_truyen = res.data.data.items;
+                    console.log(this.ds_truyen);
+                    
+                })
+        }
+    },
 
 }
 </script>
