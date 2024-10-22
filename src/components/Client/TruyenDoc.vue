@@ -37,17 +37,12 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-2">
-                        <img style="width: 220px;height: 300px;"
-                            v-bind:src="'https://otruyenapi.com/uploads/comics/'+thong_tin_truyen.thumb_url" alt="">
+                        <img style="width: 220px;height: 300px;" v-bind:src="seoSchema.image">
                     </div>
                     <div class="col-lg-9">
-                        <h4 class="card-title ms-4 mt-1">{{ thong_tin_truyen.name }}</h4>
-                        <span class="ms-4 mt-4">{{ thong_tin_truyen.author[0]}}</span>
-                        <div class="ms-4 mt-3">
-                            <button class="btn btn-primary">
-                                <i class="fa-solid fa-hotel"></i>
-                                Đọc truyện
-                            </button>
+                        <h4 class="card-title ms-4 mt-1">{{ thong_tin_truyen.titleHead }}</h4>
+                        <span class="ms-4 mt-4">{{seoSchema.director}}</span>
+                        <div class=" mt-3">
                             <button type="button" class="btn btn-outline-primary ms-4" disabled>
                                 <i class="fa-solid fa-hotel"></i>
                                 Đánh dấu
@@ -66,7 +61,7 @@
                             </button>
                         </div>
                         <div class="ms-4 mt-3 text-wrap">
-                            {{ thong_tin_truyen.content }}
+                            {{ thong_tin_truyen.descriptionHead }}
                         </div>
                         <div class="ms-4 mt-3">
                             <button type="button" class="btn btn-outline-danger" disabled>Chuyển sinh</button>
@@ -170,44 +165,23 @@
     <div class="container">
         <div class="d-flex justify-content-between" style="background-color: wheat;">
             <span class="m-2">
-                <h6>GIỚI THIỆU >></h6>
+                <h6>ĐỌC TRUYỆN >></h6>
             </span>
         </div>
         <br>
     </div>
+    <!-- xem truyện  -->
     <div class="container">
-        <div class="ms-3">
-            <span class="text-wrap ms-5" style="font-size: 20px;">
-                Người qua đường Giáp: “Mau mau, giúp ta nhìn xem ta trong này nhẫn khảo thí thứ 108 đầu công lược có vấn
-                đề
-                hay không, mẹ nó Orochimaru quá kinh khủng, đây chính là lịch đại mạnh nhất Hokage, hắn vậy mà đều g·iết
-                đi.”
-                Người qua đường bính: “Đúng đúng, còn có ta cái này, vòng như thế nào cấp tốc thay thế tóc đỏ, trở thành
-                trên biển Tứ Hoàng một trong.”
-                Người qua đường ức: “Hắc hắc, vận khí ta liền tốt, ta đã nghĩ đến biện pháp, ta chỉ cần đi khiêu chiến
-                năm
-                phiên đội đối chiến Aizen Sousuke, đánh thắng hắn ta chính là năm phiên đội đội trưởng, thái kê này bắt
-                đầu
-                liền c·hết, ta khẳng định có thể làm được?”
-                “.....”
-                Thế giới công lược trong diễn đàn, Giang Thần nhìn xem từng cái công lược người hưng phấn bước vào tử
-                hỏa
-                biển thế giới, lại nhìn một chút chính mình thanh nhiệm vụ phía trên 【 Kích Sát Frieza 】 rơi vào trầm
-                tư.
-                Hắn phong cách vẽ giống như có chút không đúng lắm, hắn ghi tên giống như có “ức” điểm mạnh.
-                Xuyên qua đến cái này toàn dân công lược thế giới, Giang Thần vậy mà phát hiện chính mình là một con
-                thiểm
-                cẩu, thậm chí vì thanh mai trúc mã đem khó được Hokage ghi tên cơ hội đưa cho đối phương, còn kèm theo
-                lấy
-                một phần tỉ mỉ chuẩn bị tình báo, mà chính mình lại chỉ có thể lựa chọn tỉ lệ t·ử v·ong cao tới 70%
-                không
-                biết thế giới ghi tên, nhưng mà Giang Thần lại phát hiện ngoài ý muốn chính mình cái này không biết thế
-                giới
-                tựa như là —— Dragon Ball.
-            </span>
-        </div>
-        <br>
+        <h1> Chapter : {{ lay_truyen.chapter_name }}</h1>
+        <!-- <template v-for="(value,index) in lay_anh_truyen" :key="index">
+            <div class="row">
+                <div class="col-lg-12 col-md-6">
+                    <img v-bind:src="value.image_file" alt="">
+                </div>
+            </div>
+        </template> -->
     </div>
+    <!-- cùng tác giả  -->
     <div class="container">
         <div class="d-flex justify-content-between" style="background-color: wheat;">
             <span class="m-2">
@@ -216,6 +190,7 @@
         </div>
         <br>
     </div>
+    <!-- ds cùng tác giả  -->
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -285,6 +260,7 @@
         </div>
         <br>
     </div>
+    <!-- đánh giá  -->
     <div class="container">
         <div class="card">
             <div class="card-body">
@@ -359,6 +335,7 @@
             </div>
         </div>
     </div>
+    <!-- footer  -->
     <div class="container">
         <hr>
         <h5 class="text-center">
@@ -378,23 +355,63 @@ export default {
     data() {
         return {
             slug: this.$route.params.slug,
-            thong_tin_truyen: {}
+            id: this.$route.params.id,
+            thong_tin_truyen: {},
+            seoSchema:{},
+            lay_truyen : [],
+            // link_truyen : lay_truyen.chapter_api_data,
+            lay_anh_truyen : [],
         };
     },
     mounted() {
-        this.layThongTinChiTietTruyen();
+        this.layThongTinTruyen();
+        this.layseoSchema();
+        this.layTruyen();
+        // this.layAnhTruyen();
     },
     methods: {
-        layThongTinChiTietTruyen() {
+        layThongTinTruyen() {
             axios
                 .get('https://otruyenapi.com/v1/api/truyen-tranh/' + this.slug)
                 .then((res) => {
-                    this.thong_tin_truyen = res.data.data.item
+                    this.thong_tin_truyen = res.data.data.seoOnPage;
+                    // console.log(this.thong_tin_truyen);
                 })
                 .catch((error) => {
                     console.error(error);
                 });
-        }
+        },
+        layseoSchema() {
+            axios
+                .get('https://otruyenapi.com/v1/api/truyen-tranh/' + this.slug)
+                .then((res) => {
+                    this.seoSchema = res.data.data.seoOnPage.seoSchema;
+                    // console.log(this.seoSchema);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+        layTruyen() {
+            axios
+                .get('https://otruyenapi.com/v1/api/truyen-tranh/' + this.slug)
+                .then((res) => {
+                    this.lay_truyen = res.data.data.item.chapters[0].server_data[0];
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+        // layAnhTruyen() {
+        //     axios
+        //         .get(this.link_truyen)
+        //         .then((res) => {
+        //             this.lay_anh_truyen = res.data.data.item.chapter_image;
+        //         })
+        //         .catch((error) => {
+        //             console.error(error);
+        //         });
+        // },
     }
 }
 </script>

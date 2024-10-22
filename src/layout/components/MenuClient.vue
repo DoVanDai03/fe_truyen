@@ -1,11 +1,13 @@
 <template>
     <div class="d-flex justify-content-around mt-3">
         <div style="height: 80px;">
-            <div style="font-family: 'Pacifico', cursive;
-            font-size: 40px;
-            color: #f44336;
-            position: relative; margin-left: 40px;">Haytruyen!
+            <router-link to="/">
+                <div style="font-family: 'Pacifico', cursive;
+                font-size: 40px;
+                color: #f44336;
+                position: relative; margin-left: 40px;">Haytruyen!
             </div>
+            </router-link>
         </div>
         <div class="nav primary-menu mt-1" style=" height: 40px">
             <nav class="navbar navbar-expand-xl w-100">
@@ -76,7 +78,7 @@
 								<p class="designattion mb-0">Web Designer</p>
 							</div>
 						</a>
-						<ul class="mt-2 dropdown-menu dropdown-menu-end show" data-bs-popper="static">
+						<ul class="mt-2 dropdown-menu dropdown-menu-end " data-bs-popper="static">
 							<li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profile</span></a>
 							</li>
 							<li><a class="dropdown-item" href="javascript:;"><i class="bx bx-cog"></i><span>Settings</span></a>

@@ -98,7 +98,42 @@
             </button>
         </div>
     </div>
-
+    <div class="container mt-2">
+        <div class="row ">
+            <template v-for="(value,index) in ds_truyen_hoan_thanh" :key="index">
+                <div class="col-lg-6">
+                    <router-link :to="'/truyen-doc/'+value.slug">
+                        <a class="nav-link" href="/truyen-doc">
+                            <div class="card mb-3 ">
+                                <div class="row g-0">
+                                    <div class="col-md-4 d-flex ">
+                                        <div class="card-header">
+                                            <img style="height: 235px;width: 180px;" v-bind:src="'https://otruyenapi.com/uploads/comics/' + value.thumb_url"
+                                                class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 d-flex ">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                {{ value.name }}</h5>
+                                            <p class="card-text">
+                                                {{ value.slug }}
+                                            </p>
+                                            <p class="card-text">
+                                                <small class="text-body-secondary">
+                                                    {{ value.updatedAt }}
+                                                </small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </router-link>
+                </div>
+            </template>
+        </div>
+    </div>
 </template>
 <script>
 import axios from 'axios';
@@ -106,20 +141,30 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            ds_truyen: []
+            ds_truyen: [],
+            ds_truyen_hoan_thanh: [],
         }
     },
     mounted() {
-        this.layDuLieuTruyen();
+        this.layDuLieuTruyenMoi();
+        this.layDuLieuTruyenHoanThanh();
     },
     methods: {
-        layDuLieuTruyen() {
+        layDuLieuTruyenMoi() {
             axios
                 .get("https://otruyenapi.com/v1/api/home")
                 .then((res) => {
                     this.ds_truyen = res.data.data.items;
                     console.log(this.ds_truyen);
                     
+                })
+        },
+        layDuLieuTruyenHoanThanh() {
+            axios
+                .get("https://otruyenapi.com/v1/api/danh-sach/hoan-thanh")
+                .then((res) => {
+                    this.ds_truyen_hoan_thanh = res.data.data.items;
+                    console.log(this.ds_truyen_hoan_thanh);                    
                 })
         }
     },

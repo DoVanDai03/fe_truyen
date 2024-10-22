@@ -38,9 +38,9 @@ const routes = [
     {
         path : '/truyen-doc/:slug',
         component: ()=>import('../components/Client/TruyenDoc.vue'),
-         meta: { layout: 'client' },
-         props : true,
-    },
+        meta: { layout: 'client' },
+        props : true,
+    }
 ]
 
 const router = createRouter({
